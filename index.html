@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jeremie Salonga | Portfolio</title>
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <!-- Google Fonts for TT Moons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=TT+Moons:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Your external CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+  <!-- Your external CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+  
+  <style>
+    /* ====== GENERAL STYLES ====== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #b2cbd6ff 0%, #0f3853ff 100%);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      transition: background 0.5s ease;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 20px;
+       background: linear-gradient(135deg, #b2cbd6ff 0%, #0f3853ff 100%);;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 5px 0;
+      font-size: 3em;
+    }
+
+    header p {
+      font-size: 0.95em;
+      opacity: 0.9;
+    }
+
+    /* ====== NAVIGATION BAR ====== */
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      background: linear-gradient(135deg, #0f3853ff 0%, #042c47ff 100%);
+      padding: 15px;
+      box-shadow: 0 2px 10px rgba(75, 68, 68, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #f3f0f0ff;
+      font-weight: 600;
+      font-size: 1.2em; 
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background-color: #2c81b9ff;
+      color: #ffffffff;
+    }
+
+    /* ====== MAIN CONTENT ====== */
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: lightgray;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    section {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333d47ff;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+    }
+
+    /* ====== PROFILE SECTION ====== */
+    .profile-info {
+      text-align: center;
+    }
+
+    #profilePic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(80, 90, 100, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    #profilePic:hover {
+      transform: scale(1.05);
+      opacity: 0.85;
+    }
+
+    .upload-hint {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .profile-text {
+      max-width: 700px;
+      margin: 25px auto;
+      line-height: 1.7;
+    }
+
+    .justify-text {
+      text-align: justify;
+    }
+
+    .left-text {
+      text-align: left;
+    }
+
+    #profile h2 {
+      text-align: left;
+    }
+
+    /* ====== BADGES ====== */
+    .badges-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .badges-group {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .badges-group h3 {
+      text-align: center;
+      color: #333d47ff;
+      margin-bottom: 15px;
+    }
+
+    .badges-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .badge {
+      background: #fff;
+      border: 2px solid #0d223aff;
+      border-radius: 25px;
+      padding: 8px 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: #333;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .badge:hover {
+      background: #00263fff;
+      color: #ffffffff;
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    }
+
+    /* ====== EDUCATION SECTION ====== */
+    .education-section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .education-item {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .education-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .education-item h3 {
+      color: #042c47ff;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+    }
+
+    .education-item p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+
+    /* ====== PROJECTS SECTION ====== */
+    article {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    article:hover {
+      transform: translateY(-5px);
+    }
+
+    article h3 {
+      color: #042c47ff; /* Changed to match the Education section h3 color */
+      margin-bottom: 10px;
+      font-size: 1.4em;
+    }
+
+    article a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007bff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    article a:hover {
+      color: #0056b3;
+    }
+
+    /* ====== SOCIAL LINKS ====== */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #042c47ff; /* Changed from black to match Education section h3 color */
+      background: #f1f3f5;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #007bff;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+    }
+
+    /* ====== LICENSES & CERTIFICATIONS SECTION ====== */
+    .certifications-section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .certification-item {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .certification-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .certification-item h3 {
+      color: #042c47ff; /* Changed from #007bff to match Education section h3 color */
+      margin-bottom: 10px;
+      font-size: 1.4em;
+    }
+
+    .certification-item p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      margin: 50px 0 20px;
+      color: white;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      main {
+        margin: 20px;
+        padding: 20px;
+      }
+      .badges-section {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Jeremie Salonga</h1>
+    <p>INFP - A • Dreamer • Visionary • IT Student at PUP San Juan Campus</p>
+  </header>
+
+  <nav>
+    <a href="#" class="nav-link active" data-section="profile">Profile</a>
+    <a href="#" class="nav-link" data-section="education">Education</a>
+    <a href="#" class="nav-link" data-section="projects">Projects</a>
+    <a href="#" class="nav-link" data-section="social">Social Media</a>
+    <a href="#" class="nav-link" data-section="licenses">Licenses & Certifications</a>
+  </nav>
+
+  <main>
+    <!-- Profile Section -->
+    <section id="profile" class="section active">
+      <h2><i class="fas fa-user"></i> My Profile</h2>
+      <div class="profile-info">
+        <label for="uploadInput">
+          <img id="profilePic" src="https://raw.githubusercontent.com/theycallmejem/theycallmejem.github.io/main/jeremie.jpg" alt="Profile Photo">
+        </label>
+        
+
+        <div class="profile-text">
+          <p class="justify-text">
+          Hi, I'm <strong>Jeremie S. Salonga</strong>, a 4th-year BS Information Technology student at Polytechnic University of the Philippines - San Juan Campus, who enjoys combining creativity with technology. My interests span across IT, multimedia, and design, where I get to use both my technical skills and artistic side.
+         </p>
+          <p class="left-text"><strong>Location:</strong> Brgy. Silangan, San Mateo, Rizal</p>
+          <p class="left-text"><strong>Interests:</strong> Passionate about multimedia, graphic design, and creative arts, with a strong interest in exploring innovative technology. I enjoy combining creativity and technology to produce visually engaging and meaningful projects.</p>
+        </div>
+
+      <div class="badges-section">
+        <div class="badges-group">
+          <h3>My Skills</h3>
+          <ul class="badges-list">
+            <li class="badge"><i class="fas fa-paint-brush"></i> Graphic Designer</li>
+            <li class="badge"><i class="fas fa-laptop"></i> Computer Literate</li>
+            <li class="badge"><i class="fas fa-brain"></i> Problem Solving</li>
+            <li class="badge"><i class="fas fa-camera"></i> Photographer</li>
+          </ul>
+        </div>
+
+        <div class="badges-group">
+          <h3>My Personality</h3>
+          <ul class="badges-list">
+            <li class="badge"><i class="fas fa-star"></i> Idealistic</li>
+            <li class="badge"><i class="fas fa-heart"></i> Kind-Hearted</li>
+            <li class="badge"><i class="fas fa-sun"></i> Optimistic</li>
+            <li class="badge"><i class="fas fa-lightbulb"></i> Thoughtful</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="education-section">
+        <div class="education-item">
+          <h3><i class="fas fa-school"></i> Primary</h3>
+          <p>Silangan Elementary School (2010-2015)</p>
+        </div>
+        <div class="education-item">
+          <h3><i class="fas fa-book"></i> Secondary</h3>
+          <p>Silangan National High School (2015-2019)</p>
+          <p>Pamantasan ng Lungsod ng Marikina (2019-2021)</p>
+        </div>
+        <div class="education-item">
+          <h3><i class="fas fa-university"></i> Tertiary</h3>
+          <p>Polytechnic University of the Philippines - San Juan Campus (September 2022 - Present)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <h2><i class="fas fa-project-diagram"></i> My Projects</h2>
+      <article>
+        <h3><i class="fas fa-trophy"></i> Project 1: Capstone</h3>
+        <p>Internmizing: Optimizing The Internship Programs Of Pup San Juan Campus</p>
+      </article>
+      <article>
+        <h3><i class="fas fa-film"></i> Project 2: Multimedia Subject</h3>
+        <p>GVSG Creative Labs – Project Manager | Short Films: SinesintangLikha "Pag-asa sa Mata ni Isko"</p>
+      </article>
+      <article>
+        <h3><i class="fas fa-briefcase"></i> Project 3: Virtual Internship Program at Salesforce</h3>
+        <p>Enhancing technical proficiency and innovation through the Salesforce platform.</p>
+      </article>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social" class="section">
+      <h2><i class="fas fa-share-alt"></i> My Social Media Accounts</h2>
+      <ul class="social-links">
+        <li><a href="https://www.facebook.com/share/1H3MAAb1PW/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@jemlangtopre" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
+        <li><a href="https://x.com/eyyy_jem" target="_blank"><i class="fab fa-x-twitter"></i> X</a></li>
+        <li><a href="https://www.instagram.com/jem.xcx" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="https://github.com/theycallmejem" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/jeremie-salonga-b9768b375/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+        <li><a href="https://www.credly.com/users/jeremie-salonga/edit#credly" target="_blank"><i class="fas fa-certificate"></i> Credly</a></li>
+      </ul>
+    </section>
+
+    <!-- Licenses & Certifications Section -->
+    <section id="licenses" class="section">
+      <h2><i class="fas fa-certificate"></i> Licenses & Certifications</h2>
+      <div class="certifications-section">
+        <div class="certification-item">
+          <h3><i class="fas fa-shield-alt"></i> Cyber Threat Management at Cisco</h3>
+          <p><i class="fas fa-calendar"></i> Issued Jun 2025</p>
+          <p><i class="fas fa-id-card"></i> Credential ID: 239d086e-700e-464c-9211-254b9fc988e3</p>
+        </div>
+        <div class="certification-item">
+          <h3><i class="fas fa-lock"></i> Introduction to Cybersecurity at Cisco</h3>
+          <p><i class="fas fa-calendar"></i> Issued Apr
+          <p><i class="fas fa-id-card"></i> Credential ID: 69fb8b07-bf04-4f46-9a8f-b411190287be</p>
+        </div>
+        <div class="certification-item">
+          <h3><i class="fas fa-network-wired"></i> Networking Basics at Cisco</h3>
+          <p><i class="fas fa-calendar"></i> Issued Feb 2024</p>
+          <p><i class="fas fa-id-card"></i> Credential ID: 46217f17-4d87-4f65-8335-25bc38a4bee4</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Jeremie Salonga. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Navigation switching
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll(".section");
+
+    function showSection(sectionId) {
+      sections.forEach(sec => sec.classList.remove("active"));
+      document.getElementById(sectionId).classList.add("active");
+
+      navLinks.forEach(link => link.classList.remove("active"));
+      document.querySelector(`[data-section="${sectionId}"]`).classList.add("active");
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        showSection(link.getAttribute("data-section"));
+      });
+    });
+
+    // Profile picture upload
+    const uploadInput = document.getElementById("uploadInput");
+    const profilePic = document.getElementById("profilePic");
+
+    uploadInput.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          profilePic.src = e.target.result;
+          localStorage.setItem("profileImage", e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    window.addEventListener("load", () => {
+      const savedImage = localStorage.getItem("profileImage");
+      if (savedImage) profilePic.src = savedImage;
+    });
+  </script>
+</
